@@ -26,6 +26,9 @@ yarn-error.log*
 .env*.local
 .env
 
+# coolify
+.env.production
+
 # vercel
 .vercel
 

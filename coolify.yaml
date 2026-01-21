@@ -1,0 +1,16 @@
+# Coolify Deployment Configuration
+# https://coolify.io/docs/knowledge-base/docker/compose
+
+services:
+  app:
+    image: node:18-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    restart: unless-stopped

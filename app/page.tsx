@@ -403,17 +403,17 @@ export default function Home() {
             </div>
 
             <div className="attendance-wrapper">
-              <div className="toggle-label">
-                <span className="toggle-title">Physical Attendance</span>
-                <span className="toggle-sub">Enable if you will attend in person</span>
-              </div>
-              <label className="switch">
+              <label className="checkbox-label">
                 <input
                   type="checkbox"
                   checked={formData.physicalAttendance}
                   onChange={(e) => setFormData({ ...formData, physicalAttendance: e.target.checked })}
+                  className="attendance-checkbox"
                 />
-                <span className="slider"></span>
+                <span className="checkbox-text">
+                  <span className="toggle-title">I will attend physically</span>
+                  <span className="toggle-sub">Uncheck if attending online</span>
+                </span>
               </label>
             </div>
 

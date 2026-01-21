@@ -27,7 +27,6 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   background-image:
     radial-gradient(circle at 50% 0%, #16243d 0%, transparent 60%),
     radial-gradient(circle at 10% 90%, rgba(109, 213, 237, 0.1) 0%, transparent 40%),
@@ -35,6 +34,12 @@ body {
   overflow-x: hidden;
   padding: 40px 20px;
   line-height: 1.6;
+}
+
+@media (min-width: 769px) {
+  body {
+    align-items: center;
+  }
 }
 
 /* Background sparkles */
@@ -208,6 +213,7 @@ select {
   font-size: 0.95rem;
   transition: all 0.3s ease;
   appearance: none;
+  min-height: 48px;
 }
 
 select {
@@ -281,6 +287,7 @@ select:disabled {
   display: inline-block;
   width: 50px;
   height: 28px;
+  min-height: 48px;
 }
 
 .switch input {
@@ -342,6 +349,7 @@ input:checked + .slider:before {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  min-height: 48px;
 }
 
 .submit-btn:hover {
@@ -436,11 +444,46 @@ input:checked + .slider:before {
 /* Responsive */
 @media (max-width: 768px) {
   body {
-    padding: 20px;
+    padding: 15px;
+    display: block;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  header {
+    margin-bottom: 25px;
+    padding: 20px 0;
+  }
+
+  .logo-img {
+    max-width: 90px;
+  }
+
+  .sub-header {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
   }
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+
+  .edition-text {
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+
+  .date-badge {
+    font-size: 0.75rem;
+    padding: 6px 16px;
+    letter-spacing: 0.5px;
+  }
+
+  .decoration-prism {
+    display: none;
   }
 
   .form-grid,
@@ -456,14 +499,98 @@ input:checked + .slider:before {
   }
 
   .registration-card {
-    padding: 25px 20px;
+    padding: 20px 15px;
+    border-radius: 16px;
   }
 
-  .logo-img {
-    max-width: 100px;
+  .form-section label,
+  .input-group label {
+    font-size: 0.7rem;
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .attendance-wrapper {
+    padding: 15px;
+  }
+
+  .toggle-title {
+    font-size: 0.85rem;
+  }
+
+  .toggle-sub {
+    font-size: 0.7rem;
+  }
+
+  .switch {
+    width: 44px;
+    height: 24px;
+  }
+
+  .slider:before {
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+
+  .submit-btn {
+    padding: 16px;
+    font-size: 0.95rem;
+    margin-top: 15px;
+  }
+
+  .success-checkmark {
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .success-title {
+    font-size: 1.4rem;
+  }
+
+  .success-text {
+    font-size: 0.9rem;
+  }
+
+  .success-confirm {
+    padding: 15px;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
   }
 
   .edition-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .date-badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+
+  .registration-card {
+    padding: 15px 12px;
   }
 }

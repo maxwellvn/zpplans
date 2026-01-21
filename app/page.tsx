@@ -219,7 +219,7 @@ export default function Home() {
           <p className="subtitle">Global Conference</p>
           <h1>AS ONE MAN</h1>
           <h2 style={{ color: 'var(--gold)', fontSize: '1.8rem', fontWeight: '300', marginBottom: '20px' }}>DIAMOND EDITION</h2>
-          <p className="dates">February 1st – February 28th, 2026</p>
+          <p className="dates">Thursday, January 29th, 2026</p>
         </header>
 
         {loading ? (

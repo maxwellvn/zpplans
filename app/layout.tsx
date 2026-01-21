@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "AS ONE MAN Diamond Global Conference | Registration",
-  description: "Register for the AS ONE MAN Diamond Global Conference - February 1st to 28th, 2026",
+  description: "Register for the AS ONE MAN Diamond Global Conference - Thursday, January 29th, 2026",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",

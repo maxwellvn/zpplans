@@ -198,21 +198,29 @@ h1 {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
 }
 
 .form-section {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
 }
 
-.form-section label {
+.form-section label,
+.input-group label {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--diamond-mid);
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 input[type="text"],
@@ -279,6 +287,9 @@ select:disabled {
   align-items: center;
   justify-content: space-between;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .toggle-label {
@@ -393,6 +404,9 @@ input:checked + .slider:before {
   border-radius: 8px;
   margin-bottom: 20px;
   grid-column: span 2;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 /* Loading Spinner */
@@ -468,6 +482,7 @@ input:checked + .slider:before {
   .container {
     max-width: 100%;
     width: 100%;
+    overflow: hidden;
   }
 
   header {
@@ -509,12 +524,24 @@ input:checked + .slider:before {
   .registration-card.form-grid {
     grid-template-columns: 1fr;
     gap: 15px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .input-group,
+  .form-section {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .full-width,
   .attendance-wrapper,
-  .submit-btn {
+  .submit-btn,
+  .error-message {
     grid-column: span 1;
+    width: 100%;
+    min-width: 0;
   }
 
   .registration-card {
@@ -522,6 +549,7 @@ input:checked + .slider:before {
     border-radius: 16px;
     width: 100%;
     max-width: 100%;
+    overflow: hidden;
   }
 
   .form-section label,
@@ -544,6 +572,8 @@ input:checked + .slider:before {
   .attendance-wrapper {
     padding: 15px;
     flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
   }
 
   .toggle-title {
@@ -555,6 +585,12 @@ input:checked + .slider:before {
   }
 
   .switch {
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .slider {
     width: 44px;
     height: 24px;
   }

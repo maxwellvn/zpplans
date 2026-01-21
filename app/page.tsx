@@ -56,7 +56,7 @@ export default function Home() {
 
   const titles = ['Pastor', 'Dcns', 'Dcn', 'Brother', 'Sister', 'Evangelist', 'Dr.'];
 
-  // Flatten all zones from all regions into a single list with their paths
+  // Flatten all zones from all regions into a single list with their paths, sorted alphabetically
   const getAllZones = () => {
     const allZones: Array<{ name: string; path: string[] }> = [];
     Object.entries(zonesData).forEach(([region, regionData]) => {
@@ -67,7 +67,7 @@ export default function Home() {
         });
       });
     });
-    return allZones;
+    return allZones.sort((a, b) => a.name.localeCompare(b.name));
   };
 
   const allZones = getAllZones();
@@ -183,27 +183,47 @@ export default function Home() {
   if (success) {
     return (
       <div className="container">
-        <div className="success-message">
-          <div className="success-icon">✓</div>
-          <h1 style={{ color: 'var(--gold)', marginBottom: '20px' }}>Registration Successful!</h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto' }}>
-            Thank you, {formData.firstName}! Your registration for the AS ONE MAN Diamond Global Conference has been confirmed.
-            A confirmation email will be sent to you shortly with all the details.
+        <header>
+          <p className="subtitle">Global Conference</p>
+          <h1>AS ONE MAN</h1>
+          <h2 style={{ color: 'var(--gold)', fontSize: '1.8rem', fontWeight: '300', marginBottom: '20px' }}>DIAMOND EDITION</h2>
+          <p className="dates">Thursday, January 29th, 2026</p>
+        </header>
+        <div className="registration-card" style={{ textAlign: 'center', padding: '60px 40px' }}>
+          <div style={{
+            width: '80px',
+            height: '80px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 30px',
+            fontSize: '40px',
+            color: 'var(--darker)',
+            fontWeight: 'bold'
+          }}>✓</div>
+          <h2 style={{ color: 'var(--gold)', fontSize: '1.8rem', marginBottom: '15px', textShadow: 'none' }}>Registration Successful!</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '450px', margin: '0 auto 10px', lineHeight: '1.7' }}>
+            Thank you, <span style={{ color: 'var(--gold)', fontWeight: '500' }}>{formData.firstName}</span>!
           </p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '450px', margin: '0 auto 30px', lineHeight: '1.7' }}>
+            Your registration for the <strong style={{ color: 'var(--text-light)' }}>AS ONE MAN Diamond Global Conference</strong> has been confirmed.
+          </p>
+          <div style={{
+            padding: '20px',
+            background: 'rgba(212, 175, 55, 0.1)',
+            border: '1px solid rgba(212, 175, 55, 0.3)',
+            borderRadius: '12px',
+            marginBottom: '30px'
+          }}>
+            <p style={{ color: 'var(--text-light)', fontSize: '0.95rem', margin: '0' }}>
+              A confirmation has been sent to <span style={{ color: 'var(--gold)' }}>{formData.email}</span>
+            </p>
+          </div>
           <button
             onClick={() => window.location.reload()}
-            style={{
-              marginTop: '40px',
-              padding: '15px 40px',
-              background: 'var(--gold)',
-              border: 'none',
-              borderRadius: '8px',
-              color: 'var(--darker)',
-              fontWeight: '600',
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-              letterSpacing: '2px'
-            }}
+            className="submit-btn"
           >
             Register Another
           </button>

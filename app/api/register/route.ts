@@ -8,6 +8,21 @@ export async function POST(request: Request) {
 
     const body = await request.json();
 
+    // Check for existing registration with same email or phone
+    const existing = await Registration.findOne({
+      $or: [
+        { email: body.email },
+        { phone: body.phone }
+      ]
+    });
+
+    if (existing) {
+      return NextResponse.json(
+        { success: false, error: 'You have already registered with this email or phone number.' },
+        { status: 409 }
+      );
+    }
+
     const registration = await Registration.create({
       title: body.title,
       firstName: body.firstName,

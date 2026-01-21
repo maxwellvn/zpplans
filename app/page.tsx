@@ -54,7 +54,7 @@ export default function Home() {
     physicalAttendance: false
   });
 
-  const titles = ['Pastor', 'Dcns', 'Dcn', 'Brother', 'Sister', 'Evangelist', 'Dr.'];
+  const titles = ['Pastor', 'Deacon', 'Deaconess', 'Brother', 'Sister', 'Evangelist', 'Dr.'];
 
   // Flatten all zones from all regions into a single list with their paths, sorted alphabetically
   const getAllZones = () => {
@@ -123,8 +123,6 @@ export default function Home() {
       return;
     }
 
-    const attendanceType = formData.physicalAttendance ? 'physical' : 'online';
-
     // Validate group selection
     if (formData.group === 'other' && !formData.otherGroup) {
       setError('Please enter your group name.');
@@ -137,13 +135,12 @@ export default function Home() {
 
     // Use otherGroup if "other" is selected
     const finalGroup = formData.group === 'other' ? formData.otherGroup : formData.group;
+    const attendanceType = formData.physicalAttendance ? 'physical' : 'online';
 
     setSubmitting(true);
     setError('');
 
     try {
-      const finalGroup = formData.group === 'other' ? formData.otherGroup : formData.group;
-      const attendanceType = formData.physicalAttendance ? 'physical' : 'online';
       const submissionData = {
         title: formData.title,
         firstName: formData.firstName,
@@ -182,64 +179,63 @@ export default function Home() {
 
   if (success) {
     return (
-      <div className="container">
-        <header>
-          <p className="subtitle">Global Conference</p>
-          <h1>AS ONE MAN</h1>
-          <h2 style={{ color: 'var(--gold)', fontSize: '1.8rem', fontWeight: '300', marginBottom: '20px' }}>DIAMOND EDITION</h2>
-          <p className="dates">Thursday, January 29th, 2026</p>
-        </header>
-        <div className="registration-card" style={{ textAlign: 'center', padding: '60px 40px' }}>
-          <div style={{
-            width: '80px',
-            height: '80px',
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0 auto 30px',
-            fontSize: '40px',
-            color: 'var(--darker)',
-            fontWeight: 'bold'
-          }}>✓</div>
-          <h2 style={{ color: 'var(--gold)', fontSize: '1.8rem', marginBottom: '15px', textShadow: 'none' }}>Registration Successful!</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '450px', margin: '0 auto 10px', lineHeight: '1.7' }}>
-            Thank you, <span style={{ color: 'var(--gold)', fontWeight: '500' }}>{formData.firstName}</span>!
-          </p>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '450px', margin: '0 auto 30px', lineHeight: '1.7' }}>
-            Your registration for the <strong style={{ color: 'var(--text-light)' }}>AS ONE MAN Diamond Global Conference</strong> has been confirmed.
-          </p>
-          <div style={{
-            padding: '20px',
-            background: 'rgba(212, 175, 55, 0.1)',
-            border: '1px solid rgba(212, 175, 55, 0.3)',
-            borderRadius: '12px',
-            marginBottom: '30px'
-          }}>
-            <p style={{ color: 'var(--text-light)', fontSize: '0.95rem', margin: '0' }}>
-              A confirmation has been sent to <span style={{ color: 'var(--gold)' }}>{formData.email}</span>
+      <>
+        <div className="sparkles"></div>
+        <div className="container">
+          <div className="decoration-prism d-1"></div>
+          <div className="decoration-prism d-2"></div>
+
+          <header>
+            <div className="logo-container">
+              <img src="https://rhapsodycrusades.org/assets/images/logo.webp" alt="Rhapsody of Realities" className="logo-img" />
+            </div>
+            <div className="sub-header">Global Conference</div>
+            <h1>AS ONE MAN</h1>
+            <div className="edition-text">DIAMOND EDITION</div>
+            <div className="date-badge">Thursday, January 29th, 2026</div>
+          </header>
+
+          <div className="registration-card" style={{ textAlign: 'center', padding: '60px 40px' }}>
+            <div className="success-checkmark">✓</div>
+            <h2 className="success-title">Registration Successful!</h2>
+            <p className="success-text">
+              Thank you, <span style={{ color: 'var(--diamond-mid)', fontWeight: '500' }}>{formData.firstName}</span>!
             </p>
+            <p className="success-text">
+              Your registration for the <strong style={{ color: 'var(--text-main)' }}>AS ONE MAN Diamond Global Conference</strong> has been confirmed.
+            </p>
+            <div className="success-confirm">
+              <p>
+                A confirmation has been sent to <span style={{ color: 'var(--diamond-accent)' }}>{formData.email}</span>
+              </p>
+            </div>
+            <button
+              onClick={() => window.location.reload()}
+              className="submit-btn"
+            >
+              Register Another
+            </button>
           </div>
-          <button
-            onClick={() => window.location.reload()}
-            className="submit-btn"
-          >
-            Register Another
-          </button>
         </div>
-      </div>
+      </>
     );
   }
 
   return (
     <>
+      <div className="sparkles"></div>
       <div className="container">
+        <div className="decoration-prism d-1"></div>
+        <div className="decoration-prism d-2"></div>
+
         <header>
-          <p className="subtitle">Global Conference</p>
+          <div className="logo-container">
+            <img src="https://rhapsodycrusades.org/assets/images/logo.webp" alt="Rhapsody of Realities" className="logo-img" />
+          </div>
+          <div className="sub-header">Global Conference</div>
           <h1>AS ONE MAN</h1>
-          <h2 style={{ color: 'var(--gold)', fontSize: '1.8rem', fontWeight: '300', marginBottom: '20px' }}>DIAMOND EDITION</h2>
-          <p className="dates">Thursday, January 29th, 2026</p>
+          <div className="edition-text">DIAMOND EDITION</div>
+          <div className="date-badge">Thursday, January 29th, 2026</div>
         </header>
 
         {loading ? (
@@ -247,8 +243,8 @@ export default function Home() {
             <div style={{
               width: '50px',
               height: '50px',
-              border: '3px solid rgba(212, 175, 55, 0.2)',
-              borderTopColor: 'var(--gold)',
+              border: '3px solid rgba(109, 213, 237, 0.2)',
+              borderTopColor: 'var(--diamond-accent)',
               borderRadius: '50%',
               animation: 'spin 1s linear infinite',
               margin: '0 auto 20px'
@@ -256,15 +252,15 @@ export default function Home() {
             <p>Loading registration form...</p>
           </div>
         ) : (
-          <form className="registration-card" onSubmit={handleSubmit}>
+          <form className="registration-card form-grid" onSubmit={handleSubmit}>
             {error && (
               <div className="error-message">
                 {error}
               </div>
             )}
 
-            <div className="form-section">
-              <label htmlFor="title">Title <span>*</span></label>
+            <div className="input-group full-width">
+              <label htmlFor="title">Title *</label>
               <select
                 id="title"
                 name="title"
@@ -279,8 +275,8 @@ export default function Home() {
               </select>
             </div>
 
-            <div className="form-section">
-              <label htmlFor="firstName">First Name <span>*</span></label>
+            <div className="input-group">
+              <label htmlFor="firstName">First Name *</label>
               <input
                 type="text"
                 id="firstName"
@@ -288,12 +284,12 @@ export default function Home() {
                 value={formData.firstName}
                 onChange={handleInputChange}
                 required
-                placeholder="Enter your first name"
+                placeholder="e.g. John"
               />
             </div>
 
-            <div className="form-section">
-              <label htmlFor="lastName">Last Name <span>*</span></label>
+            <div className="input-group">
+              <label htmlFor="lastName">Last Name *</label>
               <input
                 type="text"
                 id="lastName"
@@ -301,40 +297,38 @@ export default function Home() {
                 value={formData.lastName}
                 onChange={handleInputChange}
                 required
-                placeholder="Enter your last name"
+                placeholder="e.g. Doe"
               />
             </div>
 
-            <div className="form-row">
-              <div className="form-section">
-                <label htmlFor="email">Email Address <span>*</span></label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div className="form-section">
-                <label htmlFor="phone">Phone Number <span>*</span></label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="+1 (555) 000-0000"
-                />
-              </div>
+            <div className="input-group">
+              <label htmlFor="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                placeholder="john@example.com"
+              />
             </div>
 
-            <div className="form-section">
-              <label htmlFor="kingschat">KingsChat Username <span>*</span></label>
+            <div className="input-group">
+              <label htmlFor="phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                placeholder="+1 (555) 000-0000"
+              />
+            </div>
+
+            <div className="input-group full-width">
+              <label htmlFor="kingschat">KingsChat Username *</label>
               <input
                 type="text"
                 id="kingschat"
@@ -342,12 +336,12 @@ export default function Home() {
                 value={formData.kingschat}
                 onChange={handleInputChange}
                 required
-                placeholder="Enter your KingsChat username"
+                placeholder="@username"
               />
             </div>
 
-            <div className="form-section">
-              <label htmlFor="zone">Select Your Zone <span>*</span></label>
+            <div className="input-group">
+              <label htmlFor="zone">Select Your Zone *</label>
               <select
                 id="zone"
                 name="zone"
@@ -362,8 +356,8 @@ export default function Home() {
               </select>
             </div>
 
-            <div className="form-section">
-              <label htmlFor="group">Select Your Group <span>*</span></label>
+            <div className="input-group">
+              <label htmlFor="group">Select Your Group *</label>
               <select
                 id="group"
                 name="group"
@@ -381,8 +375,8 @@ export default function Home() {
             </div>
 
             {formData.group === 'other' && (
-              <div className="form-section">
-                <label htmlFor="otherGroup">Enter Your Group Name <span>*</span></label>
+              <div className="input-group full-width">
+                <label htmlFor="otherGroup">Enter Your Group Name *</label>
                 <input
                   type="text"
                   id="otherGroup"
@@ -395,8 +389,8 @@ export default function Home() {
               </div>
             )}
 
-            <div className="form-section">
-              <label htmlFor="church">Church Name <span>*</span></label>
+            <div className="input-group full-width">
+              <label htmlFor="church">Church Name *</label>
               <input
                 type="text"
                 id="church"
@@ -408,22 +402,18 @@ export default function Home() {
               />
             </div>
 
-            <div className="form-section">
-              <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+            <div className="attendance-wrapper">
+              <div className="toggle-label">
+                <span className="toggle-title">Physical Attendance</span>
+                <span className="toggle-sub">Enable if you will attend in person</span>
+              </div>
+              <label className="switch">
                 <input
                   type="checkbox"
-                  name="physicalAttendance"
                   checked={formData.physicalAttendance}
                   onChange={(e) => setFormData({ ...formData, physicalAttendance: e.target.checked })}
-                  style={{
-                    width: '24px',
-                    height: '24px',
-                    marginRight: '12px',
-                    cursor: 'pointer',
-                    accentColor: '#D4AF37'
-                  }}
                 />
-                <span style={{ color: 'var(--gold)', fontSize: '1rem' }}>I will attend physically (uncheck for online attendance)</span>
+                <span className="slider"></span>
               </label>
             </div>
 

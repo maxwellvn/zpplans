@@ -51,6 +51,10 @@ const RegistrationSchema = new Schema({
   },
 });
 
+// Indexes for duplicate checking
+RegistrationSchema.index({ email: 1 });
+RegistrationSchema.index({ phone: 1 });
+
 const Registration = models.Registration || model('Registration', RegistrationSchema);
 
 export default Registration;

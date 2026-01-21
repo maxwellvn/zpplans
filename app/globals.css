@@ -237,34 +237,65 @@ select option {
 }
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 3rem;
-    letter-spacing: 8px;
-  }
-
-  h2 {
-    font-size: 2rem;
-    letter-spacing: 6px;
-  }
-
-  .subtitle {
-    font-size: 1.3rem;
-    letter-spacing: 4px;
-  }
-
-  .dates {
-    font-size: 1.1rem;
-    letter-spacing: 3px;
-    padding: 15px 30px;
+  .container {
+    padding: 20px 15px;
   }
 
   header {
-    padding: 40px 15px;
-    margin-bottom: 40px;
+    padding: 30px 15px;
+    margin-bottom: 30px;
+  }
+
+  header::before {
+    width: 200px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 6px;
+    margin: 20px 0;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+  }
+
+  .dates {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    padding: 12px 20px;
+    margin-top: 15px;
   }
 
   .registration-card {
-    padding: 30px 20px;
+    padding: 25px 18px;
+    border-radius: 16px;
+  }
+
+  .form-section {
+    margin-bottom: 20px;
+  }
+
+  .form-section label {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    border-radius: 10px;
   }
 
   .form-row {
@@ -272,8 +303,45 @@ select option {
     gap: 0;
   }
 
-  .radio-group {
-    flex-direction: column;
-    gap: 15px;
+  .submit-btn {
+    padding: 18px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-top: 15px;
+  }
+
+  .success-message {
+    padding: 40px 20px;
+  }
+
+  .success-icon {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  .dates {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    padding: 10px 15px;
+  }
+
+  .registration-card {
+    padding: 20px 15px;
   }
 }

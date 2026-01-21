@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AS ONE MAN Diamond Global Conference | Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4D03F;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --accent: #2C5F7D;
+            --text-light: #f8f9fa;
+            --text-muted: #b0b0b0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .diamond-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            opacity: 0.03;
+        }
+
+        .diamond {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: rotate(45deg) translateY(0) scale(1); }
+            50% { transform: rotate(45deg) translateY(-30px) scale(1.1); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-diamond {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            transform: rotate(45deg);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+            position: relative;
+        }
+
+        .logo-diamond::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: var(--dark);
+            transform: rotate(45deg);
+        }
+
+        .logo-diamond::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: var(--gold);
+            text-shadow: 0 0 20px var(--gold);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .dates {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        .registration-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .form-section label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .form-section label span {
+            color: #e74c3c;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23D4AF37' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            padding-right: 50px;
+        }
+
+        select option {
+            background: var(--dark);
+            color: var(--text-light);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 50%;
+            margin-right: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-custom {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-custom::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 22px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            border: none;
+            border-radius: 12px;
+            color: var(--darker);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 20px 25px;
+            margin-top: 40px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .info-box h3 {
+            color: var(--gold);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+                letter-spacing: 4px;
+            }
+
+            .registration-card {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="diamond-bg">
+        <div class="diamond" style="top: 10%; left: 5%;"></div>
+        <div class="diamond" style="top: 30%; right: 10%;"></div>
+        <div class="diamond" style="bottom: 20%; left: 15%;"></div>
+        <div class="diamond" style="bottom: 40%; right: 5%;"></div>
+        <div class="diamond" style="top: 60%; left: 50%;"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo-diamond"></div>
+            <p class="subtitle">Global Conference</p>
+            <h1>AS ONE MAN</h1>
+            <h2 style="color: var(--gold); font-size: 1.8rem; font-weight: 300; margin-bottom: 20px;">DIAMOND EDITION</h2>
+            <p class="dates">February 1st – February 28th, 2026</p>
+        </header>
+
+        <form class="registration-card" id="registrationForm">
+            <div class="form-section">
+                <label for="firstName">First Name <span>*</span></label>
+                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+            </div>
+
+            <div class="form-section">
+                <label for="lastName">Last Name <span>*</span></label>
+                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+            </div>
+
+            <div class="form-row">
+                <div class="form-section">
+                    <label for="email">Email Address <span>*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-section">
+                    <label for="phone">Phone Number <span>*</span></label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 000-0000">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <label for="region">Select Your Region <span>*</span></label>
+                <select id="region" name="region" required>
+                    <option value="">Choose your region</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label for="zone">Select Your Zone <span>*</span></label>
+                <select id="zone" name="zone" required disabled>
+                    <option value="">Select a region first</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label for="group">Select Your Group <span>*</span></label>
+                <select id="group" name="group" required disabled>
+                    <option value="">Select a zone first</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label>Attendance Type <span>*</span></label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="attendanceType" value="physical" required>
+                        <span class="radio-custom"></span>
+                        Physical Attendance
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="attendanceType" value="online">
+                        <span class="radio-custom"></span>
+                        Online Attendance
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Complete Registration</button>
+
+            <div class="info-box">
+                <h3>Important Information</h3>
+                <p>Registration is free and open to all members. Upon successful registration, you will receive a confirmation email with details about the conference schedule and participation guidelines.</p>
+            </div>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p>Processing your registration...</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 AS ONE MAN Diamond Global Conference. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const zonesData = {};
+        const regionsSelect = document.getElementById('region');
+        const zonesSelect = document.getElementById('zone');
+        const groupsSelect = document.getElementById('group');
+        const form = document.getElementById('registrationForm');
+        const loading = document.getElementById('loading');
+
+        // Fetch zones data
+        fetch('https://ippc.rorglobalpartnershipdepartment.org/zones.json')
+            .then(response => response.json())
+            .then(data => {
+                Object.assign(zonesData, data);
+                populateRegions();
+            })
+            .catch(error => {
+                console.error('Error loading zones data:', error);
+                showError('Unable to load regions. Please refresh the page.');
+            });
+
+        function populateRegions() {
+            Object.keys(zonesData).forEach(region => {
+                const option = document.createElement('option');
+                option.value = region;
+                option.textContent = region;
+                regionsSelect.appendChild(option);
+            });
+        }
+
+        regionsSelect.addEventListener('change', function() {
+            const selectedRegion = this.value;
+            zonesSelect.innerHTML = '<option value="">Select your zone</option>';
+            groupsSelect.innerHTML = '<option value="">Select a zone first</option>';
+            groupsSelect.disabled = true;
+
+            if (selectedRegion && zonesData[selectedRegion]) {
+                Object.keys(zonesData[selectedRegion]).forEach(zone => {
+                    const option = document.createElement('option');
+                    option.value = zone;
+                    option.textContent = zone;
+                    zonesSelect.appendChild(option);
+                });
+                zonesSelect.disabled = false;
+            } else {
+                zonesSelect.disabled = true;
+            }
+        });
+
+        zonesSelect.addEventListener('change', function() {
+            const selectedRegion = regionsSelect.value;
+            const selectedZone = this.value;
+            groupsSelect.innerHTML = '<option value="">Select your group</option>';
+
+            if (selectedRegion && selectedZone && zonesData[selectedRegion][selectedZone]) {
+                const groups = zonesData[selectedRegion][selectedZone].groups || [];
+                if (groups.length > 0) {
+                    groups.forEach(group => {
+                        const option = document.createElement('option');
+                        option.value = group.id;
+                        option.textContent = group.name;
+                        groupsSelect.appendChild(option);
+                    });
+                    groupsSelect.disabled = false;
+                } else {
+                    groupsSelect.disabled = true;
+                    groupsSelect.innerHTML = '<option value="">No groups available</option>';
+                }
+            } else {
+                groupsSelect.disabled = true;
+            }
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // Validate
+            if (!data.firstName || !data.lastName || !data.email || !data.phone ||
+                !data.region || !data.zone || !data.group || !data.attendanceType) {
+                showError('Please fill in all required fields.');
+                return;
+            }
+
+            // Show loading
+            form.style.display = 'none';
+            loading.style.display = 'block';
+
+            // Simulate form submission
+            console.log('Registration data:', data);
+
+            setTimeout(() => {
+                loading.style.display = 'none';
+                showSuccess(data.firstName);
+            }, 2000);
+        });
+
+        function showSuccess(firstName) {
+            const container = document.querySelector('.container');
+            container.innerHTML = `
+                <div style="text-align: center; padding: 60px 20px;">
+                    <div style="font-size: 60px; color: var(--gold); margin-bottom: 20px;">✓</div>
+                    <h1 style="color: var(--gold); margin-bottom: 20px;">Registration Successful!</h1>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 500px; margin: 0 auto;">
+                        Thank you, ${firstName}! Your registration for the AS ONE MAN Diamond Global Conference has been confirmed.
+                        A confirmation email will be sent to you shortly with all the details.
+                    </p>
+                    <button onclick="location.reload()" style="margin-top: 40px; padding: 15px 40px; background: var(--gold); border: none; border-radius: 8px; color: var(--darker); font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;">
+                        Register Another
+                    </button>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            alert(message);
+        }
+    </script>
+</body>
+</html>
